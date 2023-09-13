@@ -1,4 +1,4 @@
-tile_set: "/Sprites/phone_background.atlas"
+tile_set: "/Sprites/phone_interface.atlas"
 default_animation: "phone_background"
 material: "/builtins/materials/sprite.material"
 blend_mode: BLEND_MODE_ALPHA

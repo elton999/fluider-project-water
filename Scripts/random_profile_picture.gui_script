@@ -1,13 +1,10 @@
 function init(self)
-	local character_hair = gui.get_node("character_hair")
-	local character_face = gui.get_node("character_hair")
-	local character_body = gui.get_node("character_body")
+end
 
-	local hair_color = vmath.vector4(1,0,0,1)
-	local face_color = vmath.vector4(0,1,0,1)
-	local body_color = vmath.vector4(0,0,1,1)
-	
-	gui.set_color(character_hair, hair_color)
-	gui.set_color(character_face, face_color)
-	gui.set_color(character_body, body_color)
+function on_message(self, message_id, message, sender)
+	if message_id == hash("change_hair_color") then
+		local hair_color = vmath.vector4(message.hair_color_prop.x, message.hair_color_prop.y, message.hair_color_prop.z, 1)
+		local body_part = gui.get_node("character_hair")
+		gui.set_color(body_part, hair_color)
+	end
 end

@@ -1,0 +1,11 @@
+go.property("hair_color_1", vmath.vector3(0,0,0))
+go.property("hair_color_2", vmath.vector3(0,0,0))
+go.property("hair_color_3", vmath.vector3(0,0,0))
+
+go.property("body_color_1", vmath.vector3(0,0,0))
+go.property("body_color_2", vmath.vector3(0,0,0))
+go.property("body_color_3", vmath.vector3(0,0,0))
+
+function init(self)
+	msg.post("app_base#profile_picture", "change_hair_color", { hair_color_prop = self.hair_color_1 })
+end

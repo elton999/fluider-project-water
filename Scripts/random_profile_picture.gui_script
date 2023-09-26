@@ -4,7 +4,10 @@ function init(self)
 	local character_body = gui.get_node("character_body")
 
 	local hair_color = vmath.vector4(1,0,0,1)
+	local face_color = vmath.vector4(0,1,0,1)
+	local body_color = vmath.vector4(0,0,1,1)
 	
 	gui.set_color(character_hair, hair_color)
-	gui.set_color(node, color)
+	gui.set_color(character_face, face_color)
+	gui.set_color(character_body, body_color)
 end

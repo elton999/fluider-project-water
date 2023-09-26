@@ -1,4 +1,4 @@
-script: ""
+script: "/Scripts/random_profile_picture.gui_script"
 textures {
   name: "phone_interface"
   texture: "/Sprites/phone_interface.atlas"

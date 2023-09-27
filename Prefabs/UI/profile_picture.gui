@@ -1,4 +1,4 @@
-script: "/Scripts/random_profile_picture.gui_script"
+script: "/Scripts/profile_picture_colors.gui_script"
 textures {
   name: "woman"
   texture: "/Sprites/woman.atlas"

@@ -1,9 +1,7 @@
-function init(self)
-end
-
 function on_message(self, message_id, message, sender)
 	if message_id == hash("change_hair_color") then
-		local hair_color = vmath.vector4(message.hair_color_prop.x, message.hair_color_prop.y, message.hair_color_prop.z, 1)
+		local color = message.hair_color_prop;
+		local hair_color = vmath.vector4(color.x, color.y, color.z, 1)
 		local body_part = gui.get_node("character_hair")
 		gui.set_color(body_part, hair_color)
 	end

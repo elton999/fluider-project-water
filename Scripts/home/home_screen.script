@@ -1,0 +1,3 @@
+function init(self)
+	msg.post("/app_base#character_random_colors", "create_random_character")
+end

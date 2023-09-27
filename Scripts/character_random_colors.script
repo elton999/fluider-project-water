@@ -6,8 +6,9 @@ go.property("body_color_1", vmath.vector3(0,0,0))
 go.property("body_color_2", vmath.vector3(0,0,0))
 go.property("body_color_3", vmath.vector3(0,0,0))
 
-function on_message(self, message_id, message, sender) then
+function on_message(self, message_id, message, sender)
 	if message_id == hash("create_random_character") then
-		msg.post("app_base#profile_picture", "change_hair_color", { hair_color_prop = self.hair_color_1 })
+		msg.post("/home#profile_picture", "change_hair_color", { hair_color_prop = self.hair_color_1 })
+		msg.post("/home#profile_picture", "change_body_color", { body_color_prop = self.body_color_1 })
 	end
 end

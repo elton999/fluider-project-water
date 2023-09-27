@@ -1,8 +1,14 @@
+function set_color(self, body_part, color)
+	local body_part = gui.get_node(body_part)
+	local color4 = vmath.vector4(color.x, color.y, color.z, 1)
+	gui.set_color(body_part, color4)
+end
+
 function on_message(self, message_id, message, sender)
 	if message_id == hash("change_hair_color") then
-		local color = message.hair_color_prop;
-		local hair_color = vmath.vector4(color.x, color.y, color.z, 1)
-		local body_part = gui.get_node("character_hair")
-		gui.set_color(body_part, hair_color)
+		set_color(self, "character_hair", message.hair_color_prop)
+	end
+	if message_id == hash("change_body_color") then
+		set_color(self, "character_body", message.body_color_prop)
 	end
 end

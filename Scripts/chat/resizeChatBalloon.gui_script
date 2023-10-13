@@ -1,0 +1,9 @@
+local min_wight = 130
+local min_height = 150
+
+function update(self, dt)
+	local chat_balloon = gui.get_node("text")
+	local font = gui.get_font(chat_balloon)
+	local metrics = resource.get_text_metrics(font, gui.get_text(chat_balloon))
+	print(metrics.height)
+end

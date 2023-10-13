@@ -2,25 +2,10 @@ name: "main"
 scale_along_z: 0
 embedded_instances {
   id: "app_base"
+  children: "background"
+  children: "chat"
   children: "home"
   data: "components {\n"
-  "  id: \"app_interface\"\n"
-  "  component: \"/Prefabs/UI/app_interface.gui\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "  property_decls {\n"
-  "  }\n"
-  "}\n"
-  "components {\n"
   "  id: \"character_random_colors\"\n"
   "  component: \"/Scripts/character_random_colors.script\"\n"
   "  position {\n"
@@ -63,43 +48,6 @@ embedded_instances {
   "    id: \"body_color_3\"\n"
   "    value: \"0.0, 0.0, 1.0\"\n"
   "    type: PROPERTY_TYPE_VECTOR3\n"
-  "  }\n"
-  "  property_decls {\n"
-  "  }\n"
-  "}\n"
-  ""
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
-embedded_instances {
-  id: "dialogue reader"
-  data: "components {\n"
-  "  id: \"test_read_json\"\n"
-  "  component: \"/Scripts/test_read_json.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
   "  }\n"
   "  property_decls {\n"
   "  }\n"
@@ -188,8 +136,82 @@ embedded_instances {
     w: 1.0
   }
   scale3 {
+    x: 1.0E-6
+    y: 1.0
+    z: 1.0
+  }
+}
+embedded_instances {
+  id: "chat"
+  data: "components {\n"
+  "  id: \"chat_ballon_blue\"\n"
+  "  component: \"/Prefabs/UI/Chat/chat_ballon_blue.gui\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  property_decls {\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
     x: 1.0
     y: 1.0
     z: 1.0
+  }
+}
+embedded_instances {
+  id: "background"
+  data: "components {\n"
+  "  id: \"app_interface\"\n"
+  "  component: \"/Prefabs/UI/app_interface.gui\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  property_decls {\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: -1.0
   }
 }

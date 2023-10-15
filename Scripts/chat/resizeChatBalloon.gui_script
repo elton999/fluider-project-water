@@ -1,9 +1,26 @@
-local min_wight = 130
-local min_height = 150
+local min_width = 130
+local max_width = 500
+local min_height = 130
+
+local chat_balloon
+local font_name
+local font
+
+local chat_balloon_box
+
+function init(self)
+	chat_balloon = gui.get_node("text")
+	font_name = gui.get_font(chat_balloon)
+	font = gui.get_font_resource(font_name)
+	chat_balloon_box = gui.get_node("chat")
+end
 
 function update(self, dt)
-	local chat_balloon = gui.get_node("text")
-	local font = gui.get_font(chat_balloon)
-	local metrics = resource.get_text_metrics(font, gui.get_text(chat_balloon))
-	print(metrics.height)
+	gui.set_text(chat_balloon, gui.get_text(chat_balloon) .. " a")
+	local metrics = resource.get_text_metrics(font, gui.get_text(chat_balloon), {width = 420, line_break = true})
+	local width = min_width + metrics.width
+	if width > max_width then
+		width = max_width
+	end
+	gui.set_size(chat_balloon_box, vmath.vector3(width, min_height + metrics.height, 0))
 end

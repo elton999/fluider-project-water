@@ -75,7 +75,7 @@ nodes {
   position {
     x: 0.0
     y: 21.0
-    z: 0.0
+    z: 1.0
     w: 1.0
   }
   rotation {
@@ -92,7 +92,7 @@ nodes {
   }
   size {
     x: 450.0
-    y: 150.0
+    y: 200.0
     z: 0.0
     w: 1.0
   }

@@ -16,11 +16,12 @@ function init(self)
 end
 
 function update(self, dt)
-	gui.set_text(chat_balloon, gui.get_text(chat_balloon) .. " a")
 	local metrics = resource.get_text_metrics(font, gui.get_text(chat_balloon), {width = 420, line_break = true})
+	
 	local width = min_width + metrics.width
 	if width > max_width then
 		width = max_width
 	end
+	
 	gui.set_size(chat_balloon_box, vmath.vector3(width, min_height + metrics.height, 0))
 end

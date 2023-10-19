@@ -1,0 +1,4 @@
+function init(self)
+	local component = "#chat_factory"
+	factory.create(component, go.get_position())
+end

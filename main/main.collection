@@ -181,8 +181,8 @@ embedded_instances {
 embedded_instances {
   id: "chat"
   data: "components {\n"
-  "  id: \"chat_ballon_blue\"\n"
-  "  component: \"/Prefabs/UI/Chat/chat_ballon_blue.gui\"\n"
+  "  id: \"chat_spwan_test\"\n"
+  "  component: \"/Scripts/chat/chat_spwan_test.script\"\n"
   "  position {\n"
   "    x: 0.0\n"
   "    y: 0.0\n"
@@ -197,10 +197,29 @@ embedded_instances {
   "  property_decls {\n"
   "  }\n"
   "}\n"
+  "embedded_components {\n"
+  "  id: \"chat_factory\"\n"
+  "  type: \"factory\"\n"
+  "  data: \"prototype: \\\"/Prefabs/UI/Chat/blueChat.go\\\"\\n"
+  "load_dynamically: true\\n"
+  "dynamic_prototype: false\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
   ""
   position {
-    x: 0.0
-    y: 0.0
+    x: 98.0
+    y: 430.0
     z: 0.0
   }
   rotation {

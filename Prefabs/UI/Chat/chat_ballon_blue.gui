@@ -16,7 +16,7 @@ background_color {
 nodes {
   position {
     x: 465.0
-    y: 260.0
+    y: 0.0
     z: 0.0
     w: 1.0
   }
@@ -104,7 +104,7 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "Hi"
+  text: "Hi! how are you?"
   font: "font"
   id: "text"
   xanchor: XANCHOR_NONE

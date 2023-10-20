@@ -1,44 +1,4 @@
 name: "main"
-instances {
-  id: "blueChat"
-  prototype: "/Prefabs/UI/Chat/blueChat.go"
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
-instances {
-  id: "blueChat1"
-  prototype: "/Prefabs/UI/Chat/blueChat.go"
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
 scale_along_z: 0
 embedded_instances {
   id: "app_base"
@@ -220,9 +180,24 @@ embedded_instances {
 }
 embedded_instances {
   id: "chat"
-  children: "blueChat"
-  children: "blueChat1"
-  data: "embedded_components {\n"
+  data: "components {\n"
+  "  id: \"chat_spwan_test\"\n"
+  "  component: \"/Scripts/chat/chat_spwan_test.script\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  property_decls {\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
   "  id: \"chat_factory\"\n"
   "  type: \"factory\"\n"
   "  data: \"prototype: \\\"/Prefabs/UI/Chat/blueChat.go\\\"\\n"

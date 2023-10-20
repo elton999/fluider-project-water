@@ -9,28 +9,41 @@ local font
 local chat_balloon_box
 
 local text_chat = ""
+local chat_position = 0
 
-function init(self)
+local function set_variables(self)
 	chat_balloon = gui.get_node("text")
 	font_name = gui.get_font(chat_balloon)
 	font = gui.get_font_resource(font_name)
 	chat_balloon_box = gui.get_node("chat")
 end
 
-function update(self, dt)
-	gui.set_text(chat_balloon, text_chat)
+local function update_size(self)
+
 	local metrics = resource.get_text_metrics(font, text_chat, {width = 420, line_break = true})
-	
+
 	local width = min_width + metrics.width
 	if width > max_width then
 		width = max_width
 	end
-	
+
 	gui.set_size(chat_balloon_box, vmath.vector3(width, min_height + metrics.height, 0))
+
+	if chat_position == 1 then
+		gui.set_position(chat_balloon_box, vmath.vector3(465, 100, 0))
+	else
+		gui.set_position(chat_balloon_box, vmath.vector3(465, 0, 0))
+	end
 end
 
 function on_message(self, message_id, message, sender)
 	if message_id == hash("info") then
 		text_chat = message.text
+		set_variables(self)
+		gui.set_text(chat_balloon, text_chat)
+		update_size(self)
+		if message.position == 1 then
+			chat_position = 1
+		end
 	end
 end

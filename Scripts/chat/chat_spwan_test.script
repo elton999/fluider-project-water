@@ -1,9 +1,10 @@
 function init(self)
 	local component = "#chat_factory"
-	local id = factory.create(component)
-	print(id)
-	msg.post(id, "info", {text =  "How are you?"})
-	id = factory.create(component, go.get_position())
-	print(id)
-	msg.post(id, "info", {text =  "Hi!"})
+	local id1 = factory.create(component)
+	print(id1)
+	msg.post(id1, "info", {text = "How are you?", position = 1})
+	
+	local id2 = factory.create(component, go.get_position())
+	print(id2)
+	msg.post(id2, "info", {text = "Hi!", position = 0})
 end

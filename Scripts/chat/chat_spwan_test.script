@@ -1,10 +1,29 @@
-function init(self)
-	local component = "#chat_factory"
-	local id1 = factory.create(component)
-	print(id1)
-	msg.post(id1, "info", {text = "How are you?", position = 1})
-	
-	local id2 = factory.create(component, go.get_position())
-	print(id2)
-	msg.post(id2, "info", {text = "Hi!", position = 0})
+local component = "#chat_factory"
+local chats = {}
+
+local count = 1
+local is_processing = false
+
+
+function update(self, dt)
+	if is_processing == false and count <= 3 then
+		is_processing = true
+
+		local id = factory.create(component)
+		chats[count - 1] = hash(id)
+		msg.post(id, "info", {text = "How are you?"..count, position = count})
+		count = count + 1
+		
+		print(hash(id))
+	end
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("new_chat_box") then
+		for i = 0, count - 2 do
+			msg.post(chats[i], "reposition", {height = message.height})
+		end
+
+		is_processing = false
+	end
 end

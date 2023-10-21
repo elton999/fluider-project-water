@@ -26,23 +26,31 @@ local function update_size(self)
 		width = max_width
 	end
 
-	gui.set_size(chat_balloon_box, vmath.vector3(width, min_height + metrics.height, 0))
+	local height = min_height + metrics.height
+	gui.set_size(chat_balloon_box, vmath.vector3(width, height, 0))
 
-	if chat_position == 1 then
-		gui.set_position(chat_balloon_box, vmath.vector3(600, 100, 0))
-	else
-		gui.set_position(chat_balloon_box, vmath.vector3(600, 0, 0))
-	end
+	gui.set_text(chat_balloon, text_chat)
+end
+
+local function send_size(self, size)
+	msg.post("/chat#chat_spwan_test", "new_chat_box", {height = size})
 end
 
 function on_message(self, message_id, message, sender)
 	if message_id == hash("info") then
 		text_chat = message.text
 		set_variables(self)
-		gui.set_text(chat_balloon, text_chat)
+		
 		update_size(self)
-		if message.position == 1 then
-			chat_position = 1
-		end
+		gui.set_position(chat_balloon_box, vmath.vector3(600, 0, 0))
+
+		local size = gui.get_size(chat_balloon_box)
+		send_size(self, size.y/2)
+	end
+
+	if message_id == hash("reposition") then
+		set_variables(self)
+		local position = gui.get_position(chat_balloon_box)
+		gui.set_position(chat_balloon_box, vmath.vector3(position.x, position.y + message.height, 0))
 	end
 end

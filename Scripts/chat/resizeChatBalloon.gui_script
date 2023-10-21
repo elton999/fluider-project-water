@@ -42,7 +42,8 @@ function on_message(self, message_id, message, sender)
 		set_variables(self)
 		
 		update_size(self)
-		gui.set_position(chat_balloon_box, vmath.vector3(600, 0, 0))
+		local position = gui.get_position(chat_balloon_box)
+		gui.set_position(chat_balloon_box, vmath.vector3(position.x, 0, 0))
 
 		local size = gui.get_size(chat_balloon_box)
 		send_size(self, size.y/2)

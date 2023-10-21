@@ -181,7 +181,7 @@ embedded_instances {
 embedded_instances {
   id: "chat"
   data: "components {\n"
-  "  id: \"chat_box_spawn.script\"\n"
+  "  id: \"chat_box_spawn\"\n"
   "  component: \"/Scripts/chat/chat_box_spawn.script\"\n"
   "  position {\n"
   "    x: 0.0\n"

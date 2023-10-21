@@ -19,7 +19,6 @@ local function set_variables(self)
 end
 
 local function update_size(self)
-
 	local metrics = resource.get_text_metrics(font, text_chat, {width = 420, line_break = true})
 
 	local width = min_width + metrics.width
@@ -30,9 +29,9 @@ local function update_size(self)
 	gui.set_size(chat_balloon_box, vmath.vector3(width, min_height + metrics.height, 0))
 
 	if chat_position == 1 then
-		gui.set_position(chat_balloon_box, vmath.vector3(465, 100, 0))
+		gui.set_position(chat_balloon_box, vmath.vector3(600, 100, 0))
 	else
-		gui.set_position(chat_balloon_box, vmath.vector3(465, 0, 0))
+		gui.set_position(chat_balloon_box, vmath.vector3(600, 0, 0))
 	end
 end
 

@@ -33,7 +33,7 @@ local function update_size(self)
 end
 
 local function send_size(self, size)
-	msg.post("/chat#chat_spwan_test", "new_chat_box", {height = size})
+	msg.post("/chat#chat_box_spawn", "new_chat_box", {height = size})
 end
 
 function on_message(self, message_id, message, sender)

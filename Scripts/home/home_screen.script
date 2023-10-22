@@ -1,3 +1,23 @@
-function init(self)
-	msg.post("/app_base#character_random_colors", "create_random_character")
+local can_start = false
+local already_send = false
+
+local function start_home(self)
+	if already_send == false then
+		msg.post("/app_base#character_random_colors", "create_random_character")
+		already_send = true
+	end
+end
+
+function update(self, dt)
+	if can_start then
+		start_home(self)
+		can_start = false
+	end
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("start_home") then
+		can_start = true
+		already_send = false
+	end
 end

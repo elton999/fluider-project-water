@@ -11,8 +11,9 @@ chats[4]=	{msg = "I'm good!", player = true, id = nil}
 local count = 0
 local total_msg = 5
 local is_processing = false
+local can_start_chat = false
 
-function update(self, dt)
+local function show_chat(self)
 	if is_processing == false and count < total_msg then
 		is_processing = true
 
@@ -22,11 +23,17 @@ function update(self, dt)
 		else
 			id = factory.create(component_npc)
 		end
-		
+
 		chats[count].id = hash(id)
 		msg.post(id, "info", {text = chats[count].msg, position = count})
-		
+
 		count = count + 1
+	end
+end
+
+function update(self, dt)
+	if can_start_chat then
+		show_chat(self)
 	end
 end
 

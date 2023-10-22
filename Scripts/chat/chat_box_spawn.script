@@ -38,6 +38,10 @@ function update(self, dt)
 end
 
 function on_message(self, message_id, message, sender)
+	if message_id == hash("start_chat") then
+		can_start_chat = true
+	end
+	
 	if message_id == hash("new_chat_box") then
 		for i = 0, count - 1 do
 			msg.post(chats[i].id, "reposition", {height = message.height})

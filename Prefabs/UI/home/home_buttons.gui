@@ -1,4 +1,4 @@
-script: ""
+script: "/Scripts/home/home_profile_buttons.gui_script"
 textures {
   name: "phone_interface"
   texture: "/Sprites/phone_interface.atlas"

@@ -1,0 +1,15 @@
+local match_button_id = "match_btn"
+
+function init(self)
+	msg.post(".", "acquire_input_focus")
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash("touch") and action.pressed then
+		local match_btn = gui.get_node(match_button_id)
+
+		if gui.pick_node(match_btn, action.x, action.y) then
+			msg.post("/app_base#pages_controller", "open_chat_page")
+		end
+	end
+end

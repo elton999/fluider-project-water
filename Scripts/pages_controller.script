@@ -12,6 +12,18 @@ local function show_home_page(self)
 	msg.post("/home#home_screen", hash("start_home"))
 end
 
+local function show_chat_page(self)
+	change_all_page_status(self, "disable")
+	msg.post(chat_id, "enable")
+	msg.post("/chat#chat_box_spawn", hash("start_chat"))
+end
+
 function init(self)
 	show_home_page(self)
+end
+
+function on_message(self, message_id, message)
+	if message_id == hash("open_chat_page") then
+		show_chat_page(self)
+	end
 end

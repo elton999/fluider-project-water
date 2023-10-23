@@ -2,11 +2,11 @@ local component_player = "#chat_factory_player"
 local component_npc = "#chat_factory_npc"
 
 local chats = {}
-chats[0]=	{msg = "Hi!", player = true, id = nil}
-chats[1]=	{msg = "Hello!", player = false, id = nil}
-chats[2]=	{msg = "How are you?", player = true, id = nil}
-chats[3]=	{msg = "I'm ok! how about you?", player = false, id = nil}
-chats[4]=	{msg = "I'm good!", player = true, id = nil}
+chats[0] = {msg = "Hi!", player = true, id = nil}
+chats[1] = {msg = "Hello!", player = false, id = nil}
+chats[2] = {msg = "How are you?", player = true, id = nil}
+chats[3] = {msg = "I'm ok! how about you?", player = false, id = nil}
+chats[4] = {msg = "I'm good!", player = true, id = nil}
 
 local count = 0
 local total_msg = 5
@@ -41,12 +41,16 @@ function on_message(self, message_id, message, sender)
 	if message_id == hash("start_chat") then
 		can_start_chat = true
 	end
+
+	if message_id == hash("new_message") then
+		chats[total_msg] = {msg = message.msg, player = message.player, id = nil}
+		total_msg = total_msg + 1
+	end
 	
 	if message_id == hash("new_chat_box") then
 		for i = 0, count - 1 do
 			msg.post(chats[i].id, "reposition", {height = message.height})
 		end
-
 		is_processing = false
 	end
 end

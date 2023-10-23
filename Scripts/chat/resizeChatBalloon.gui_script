@@ -2,6 +2,9 @@ local min_width = 130
 local max_width = 500
 local min_height = 130
 
+local min_position_y = 
+local max_width_chat_box = 420
+
 local chat_balloon
 local font_name
 local font
@@ -19,7 +22,7 @@ local function set_variables(self)
 end
 
 local function update_size(self)
-	local metrics = resource.get_text_metrics(font, text_chat, {width = 420, line_break = true})
+	local metrics = resource.get_text_metrics(font, text_chat, {width = max_width_chat_box, line_break = true})
 
 	local width = min_width + metrics.width
 	if width > max_width then
@@ -43,7 +46,7 @@ function on_message(self, message_id, message, sender)
 		
 		update_size(self)
 		local position = gui.get_position(chat_balloon_box)
-		gui.set_position(chat_balloon_box, vmath.vector3(position.x, 60, 0))
+		gui.set_position(chat_balloon_box, vmath.vector3(position.x, min_position_y, 0))
 
 		local size = gui.get_size(chat_balloon_box)
 		send_size(self, size.y/2)

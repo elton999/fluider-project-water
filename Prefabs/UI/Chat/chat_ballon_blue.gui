@@ -1,4 +1,4 @@
-script: "/Scripts/chat/resizeChatBalloon.gui_script"
+script: "/Scripts/chat/resize_chat_balloon.gui_script"
 fonts {
   name: "font"
   font: "/Sprites/balloon_text.font"

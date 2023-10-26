@@ -1,4 +1,4 @@
-script: ""
+script: "/Scripts/chat/chat_button_options.gui_script"
 fonts {
   name: "balloon_text"
   font: "/Sprites/balloon_text.font"
@@ -161,7 +161,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "<option>"
   font: "balloon_text"
-  id: "text"
+  id: "text_1"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -287,7 +287,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "<option>"
   font: "balloon_text"
-  id: "text1"
+  id: "text_2"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -413,7 +413,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "<option>"
   font: "balloon_text"
-  id: "text2"
+  id: "text_3"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER

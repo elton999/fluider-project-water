@@ -2,11 +2,6 @@ local component_player = "#chat_factory_player"
 local component_npc = "#chat_factory_npc"
 
 local chats = {}
-chats[0] = {msg = "Hi!", player = true, id = nil}
-chats[1] = {msg = "Hello!", player = false, id = nil}
-chats[2] = {msg = "How are you?", player = true, id = nil}
-chats[3] = {msg = "I'm ok! how about you?", player = false, id = nil}
-chats[4] = {msg = "I'm good!", player = true, id = nil}
 
 local count = 0
 local total_msg = 5
@@ -17,17 +12,20 @@ local function show_chat(self)
 	if is_processing == false and count < total_msg then
 		is_processing = true
 
-		local id = nil
-		if chats[count].player then
-			id = factory.create(component_player)
-		else
-			id = factory.create(component_npc)
+		if table.getn(chats) > 0 then
+			local id = nil
+			if chats[count].player then
+				id = factory.create(component_player)
+			else
+				id = factory.create(component_npc)
+			end
+
+			chats[count].id = hash(id)
+			msg.post(id, "info", {text = chats[count].msg, position = count})
+
+			count = count + 1
 		end
-
-		chats[count].id = hash(id)
-		msg.post(id, "info", {text = chats[count].msg, position = count})
-
-		count = count + 1
+		
 	end
 end
 
@@ -45,6 +43,7 @@ function on_message(self, message_id, message, sender)
 	if message_id == hash("new_message") then
 		chats[total_msg] = {msg = message.msg, player = message.player, id = nil}
 		total_msg = total_msg + 1
+		can_start_chat = true
 	end
 	
 	if message_id == hash("new_chat_box") then

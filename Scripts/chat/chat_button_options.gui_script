@@ -1,0 +1,28 @@
+local button_option_1
+local button_option_2
+local button_option_3
+
+local button_text_1
+local button_text_2
+local button_text_3
+
+function init(self)
+	
+end
+
+function on_message(self, message_id, message)
+	button_option_1 = gui.get_node("option_1")
+	button_option_2 = gui.get_node("option_2")
+	button_option_3 = gui.get_node("option_3")
+
+	button_text_1 = gui.get_node("text_1")
+	button_text_2 = gui.get_node("text_2")
+	button_text_3 = gui.get_node("text_3")
+	
+	if message_id == hash("show_options") then
+		print("show button options")
+		gui.set_text(button_text_1, message.text_1)
+		gui.set_text(button_text_2, message.text_2)
+		gui.set_text(button_text_3, message.text_3)
+	end
+end

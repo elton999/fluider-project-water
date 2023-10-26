@@ -2,7 +2,7 @@ local min_width = 130
 local max_width = 500
 local min_height = 130
 
-local min_position_y = 
+local min_position_y = 43
 local max_width_chat_box = 420
 
 local chat_balloon

@@ -1,5 +1,38 @@
+local current_message = 2
+local test_json_file
+local test_json_table
+
 function init(self)
-	local test_json_file = sys.load_resource("/res/Dialogue1.dn")
-	local test_json_table = json.decode(test_json_file)
-	pprint(test_json_table.nodes[2].nextNode)
+	test_json_file = sys.load_resource("/res/Dialogue1.dn")
+	test_json_table = json.decode(test_json_file)
+end
+
+local function get_node(seld, id)
+	local lenght = table.getn(test_json_table.nodes)
+	for i = 1, lenght do
+		local node = test_json_table.nodes[i]
+		if id == node.id then
+			return node
+		end
+	end
+	return nil
+end
+
+local function send_next_message(self)
+	local node = get_node(self, current_message)
+	if table.getn(node.options) == 0 then
+		msg.post("/chat#chat_box_spawn", "new_message", { msg = node.content, player = false })
+	else
+		msg.post("/chat#chat_options", "show_options", {
+			text_1 = get_node(self, node.options[1]).name, 
+			text_2 = get_node(self, node.options[2]).name, 
+			text_3 = get_node(self, node.options[3]).name
+		})
+	end
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("start_chat") then
+		send_next_message(self)
+	end
 end

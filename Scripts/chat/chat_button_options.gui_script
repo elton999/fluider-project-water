@@ -7,10 +7,8 @@ local button_text_2
 local button_text_3
 
 function init(self)
-	
-end
+	msg.post(".", "acquire_input_focus")
 
-function on_message(self, message_id, message)
 	button_option_1 = gui.get_node("option_1")
 	button_option_2 = gui.get_node("option_2")
 	button_option_3 = gui.get_node("option_3")
@@ -18,11 +16,44 @@ function on_message(self, message_id, message)
 	button_text_1 = gui.get_node("text_1")
 	button_text_2 = gui.get_node("text_2")
 	button_text_3 = gui.get_node("text_3")
-	
+end
+
+local function set_active_buttons(self, status)
+	gui.set_enabled(button_option_1, status)
+	gui.set_enabled(button_option_2, status)
+	gui.set_enabled(button_option_3, status)
+
+	gui.set_enabled(button_text_1, status)
+	gui.set_enabled(button_text_2, status)
+	gui.set_enabled(button_text_3, status)
+end
+
+function on_message(self, message_id, message)
 	if message_id == hash("show_options") then
 		print("show button options")
+		set_active_buttons(self, true)
 		gui.set_text(button_text_1, message.text_1)
 		gui.set_text(button_text_2, message.text_2)
 		gui.set_text(button_text_3, message.text_3)
+	end
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash("touch") and action.pressed then
+		if gui.pick_node(button_option_1, action.x, action.y) then
+			print("choose option 1")
+			set_active_buttons(self, false)
+			msg.post("/app_base#test_read_json", "send_option", {id = 1})
+		end
+		if gui.pick_node(button_option_2, action.x, action.y) then
+			print("choose option 2")
+			set_active_buttons(self, false)
+			msg.post("/app_base#test_read_json", "send_option", {id = 2})
+		end
+		if gui.pick_node(button_option_3, action.x, action.y) then
+			print("choose option 3")
+			set_active_buttons(self, false)
+			msg.post("/app_base#test_read_json", "send_option", {id = 3})
+		end
 	end
 end

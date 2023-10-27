@@ -20,9 +20,10 @@ end
 
 local function send_next_message(self)
 	local node = get_node(self, current_message)
-	if table.getn(node.options) == 0 then
-		msg.post("/chat#chat_box_spawn", "new_message", { msg = node.content, player = false })
-	else
+	if table.getn(node.options) == 1 then
+		msg.post("/chat#chat_box_spawn", "new_message", { msg = node.options[1].content, player = false })
+	end
+	if table.getn(node.options) == 3 then
 		msg.post("/chat#chat_options", "show_options", {
 			text_1 = get_node(self, node.options[1]).name, 
 			text_2 = get_node(self, node.options[2]).name, 
@@ -34,5 +35,13 @@ end
 function on_message(self, message_id, message, sender)
 	if message_id == hash("start_chat") then
 		send_next_message(self)
+	end
+
+	if message_id == hash("send_option") then
+		local node = get_node(self, current_message)
+		current_message = node.options[message.id]
+		node = get_node(self, current_message)
+		current_message = node.nextNode
+		msg.post("/chat#chat_box_spawn", "new_message", { msg = node.content, player = true })
 	end
 end

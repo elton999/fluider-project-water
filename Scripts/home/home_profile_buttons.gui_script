@@ -18,6 +18,5 @@ function on_input(self, action_id, action)
 		if gui.pick_node(next_btn, action.x, action.y) then
 			msg.post("/home#home_screen", hash("start_home"))
 		end 
-		
 	end
 end

@@ -43,17 +43,17 @@ function on_input(self, action_id, action)
 		if gui.pick_node(button_option_1, action.x, action.y) then
 			print("choose option 1")
 			set_active_buttons(self, false)
-			msg.post("/app_base#test_read_json", "send_option", {id = 1})
+			msg.post("/app_base#chat_data", "send_option", {id = 1})
 		end
 		if gui.pick_node(button_option_2, action.x, action.y) then
 			print("choose option 2")
 			set_active_buttons(self, false)
-			msg.post("/app_base#test_read_json", "send_option", {id = 2})
+			msg.post("/app_base#chat_data", "send_option", {id = 2})
 		end
 		if gui.pick_node(button_option_3, action.x, action.y) then
 			print("choose option 3")
 			set_active_buttons(self, false)
-			msg.post("/app_base#test_read_json", "send_option", {id = 3})
+			msg.post("/app_base#chat_data", "send_option", {id = 3})
 		end
 	end
 end

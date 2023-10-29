@@ -1,11 +1,11 @@
 local current_message = 0
-local test_json_file
-local test_json_table
+local json_file
+local chat_table
 
 local function get_node(seld, id)
-	local lenght = table.getn(test_json_table.nodes)
+	local lenght = table.getn(chat_table.nodes)
 	for i = 1, lenght do
-		local node = test_json_table.nodes[i]
+		local node = chat_table.nodes[i]
 		if id == node.id then
 			return node
 		end
@@ -14,7 +14,7 @@ local function get_node(seld, id)
 end
 
 local function get_first_node_id(self)
-	return get_node(self, test_json_table.startNode).nextNode
+	return get_node(self, chat_table.startNode).nextNode
 end
 
 local function send_next_message(self)
@@ -40,8 +40,8 @@ end
 -- defold methods
 
 function init(self)
-	test_json_file = sys.load_resource("/res/Dialogue1.dn")
-	test_json_table = json.decode(test_json_file)
+	json_file = sys.load_resource("/res/Dialogue1.dn")
+	chat_table = json.decode(json_file)
 	current_message = get_first_node_id(self)
 end
 

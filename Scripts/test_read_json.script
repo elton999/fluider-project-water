@@ -1,11 +1,6 @@
-local current_message = 2
+local current_message = 0
 local test_json_file
 local test_json_table
-
-function init(self)
-	test_json_file = sys.load_resource("/res/Dialogue1.dn")
-	test_json_table = json.decode(test_json_file)
-end
 
 local function get_node(seld, id)
 	local lenght = table.getn(test_json_table.nodes)
@@ -16,6 +11,10 @@ local function get_node(seld, id)
 		end
 	end
 	return nil
+end
+
+local function get_first_node_id(self)
+	return get_node(self, test_json_table.startNode).nextNode
 end
 
 local function send_next_message(self)
@@ -37,6 +36,15 @@ local function send_next_message(self)
 		})
 	end
 end
+
+-- defold methods
+
+function init(self)
+	test_json_file = sys.load_resource("/res/Dialogue1.dn")
+	test_json_table = json.decode(test_json_file)
+	current_message = get_first_node_id(self)
+end
+
 
 function on_message(self, message_id, message, sender)
 	if message_id == hash("start_chat") then

@@ -19,21 +19,25 @@ end
 
 local function send_next_message(self)
 	local node = get_node(self, current_message)
-	if table.getn(node.options) == 1 then
-		local node_message = get_node(self, node.options[1])
-		msg.post("/chat#chat_box_spawn", "new_message", { msg = node_message.content, player = false })
-		
-		timer.delay(1, false, function() 
-			current_message = node_message.nextNode
-			send_next_message(self)
-		end)
-	end
-	if table.getn(node.options) == 3 then
-		msg.post("/chat#chat_options", "show_options", {
-			text_1 = get_node(self, node.options[1]).name, 
-			text_2 = get_node(self, node.options[2]).name, 
-			text_3 = get_node(self, node.options[3]).name
-		})
+	if node ~= nil then
+		if table.getn(node.options) == 1 then
+			local node_message = get_node(self, node.options[1])
+			if node_message ~= nil then
+				msg.post("/chat#chat_box_spawn", "new_message", { msg = node_message.content, player = false })
+				
+				timer.delay(1, false, function() 
+					current_message = node_message.nextNode
+					send_next_message(self)
+				end)
+			end
+		end
+		if table.getn(node.options) == 3 then
+			msg.post("/chat#chat_options", "show_options", {
+				text_1 = get_node(self, node.options[1]).name, 
+				text_2 = get_node(self, node.options[2]).name, 
+				text_3 = get_node(self, node.options[3]).name
+			})
+		end
 	end
 end
 

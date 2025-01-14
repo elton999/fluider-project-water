@@ -8,17 +8,6 @@ embedded_instances {
   data: "components {\n"
   "  id: \"character_random_colors\"\n"
   "  component: \"/Scripts/character_random_colors.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
   "  properties {\n"
   "    id: \"hair_color_1\"\n"
   "    value: \"1.0, 0.0, 0.0\"\n"
@@ -49,59 +38,70 @@ embedded_instances {
   "    value: \"0.0, 0.0, 1.0\"\n"
   "    type: PROPERTY_TYPE_VECTOR3\n"
   "  }\n"
-  "  property_decls {\n"
-  "  }\n"
   "}\n"
   "components {\n"
   "  id: \"pages_controller\"\n"
   "  component: \"/Scripts/pages_controller.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "  property_decls {\n"
-  "  }\n"
   "}\n"
   "components {\n"
   "  id: \"chat_data\"\n"
   "  component: \"/Scripts/chat_data.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "  property_decls {\n"
-  "  }\n"
   "}\n"
   ""
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
+}
+embedded_instances {
+  id: "home"
+  data: "components {\n"
+  "  id: \"profile_picture\"\n"
+  "  component: \"/Prefabs/UI/home/home_profile_picture.gui\"\n"
+  "}\n"
+  "components {\n"
+  "  id: \"home_buttons\"\n"
+  "  component: \"/Prefabs/UI/home/home_buttons.gui\"\n"
+  "}\n"
+  "components {\n"
+  "  id: \"home_screen\"\n"
+  "  component: \"/Scripts/home/home_screen.script\"\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"camera\"\n"
+  "  type: \"camera\"\n"
+  "  data: \"aspect_ratio: 1.0\\n"
+  "fov: 0.7854\\n"
+  "near_z: 0.1\\n"
+  "far_z: 1000.0\\n"
+  "\"\n"
+  "}\n"
+  ""
+}
+embedded_instances {
+  id: "chat"
+  data: "components {\n"
+  "  id: \"chat_box_spawn\"\n"
+  "  component: \"/Scripts/chat/chat_box_spawn.script\"\n"
+  "}\n"
+  "components {\n"
+  "  id: \"chat_options\"\n"
+  "  component: \"/Prefabs/UI/Chat/chat_options.gui\"\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"chat_factory_player\"\n"
+  "  type: \"factory\"\n"
+  "  data: \"prototype: \\\"/Prefabs/UI/Chat/chat_blue.go\\\"\\n"
+  "load_dynamically: true\\n"
+  "\"\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"chat_factory_npc\"\n"
+  "  type: \"factory\"\n"
+  "  data: \"prototype: \\\"/Prefabs/UI/Chat/chat_green.go\\\"\\n"
+  "load_dynamically: true\\n"
+  "\"\n"
+  "}\n"
+  ""
   scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
+    x: 1.0E-6
+    y: 1.0E-6
   }
 }
 embedded_instances {
@@ -109,198 +109,6 @@ embedded_instances {
   data: "components {\n"
   "  id: \"app_interface\"\n"
   "  component: \"/Prefabs/UI/app_interface.gui\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "  property_decls {\n"
-  "  }\n"
   "}\n"
   ""
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
-embedded_instances {
-  id: "home"
-  data: "components {\n"
-  "  id: \"profile_picture\"\n"
-  "  component: \"/Prefabs/UI/home/home_profile_picture.gui\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "  property_decls {\n"
-  "  }\n"
-  "}\n"
-  "components {\n"
-  "  id: \"home_buttons\"\n"
-  "  component: \"/Prefabs/UI/home/home_buttons.gui\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "  property_decls {\n"
-  "  }\n"
-  "}\n"
-  "components {\n"
-  "  id: \"home_screen\"\n"
-  "  component: \"/Scripts/home/home_screen.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "  property_decls {\n"
-  "  }\n"
-  "}\n"
-  ""
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
-embedded_instances {
-  id: "chat"
-  data: "components {\n"
-  "  id: \"chat_box_spawn\"\n"
-  "  component: \"/Scripts/chat/chat_box_spawn.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "  property_decls {\n"
-  "  }\n"
-  "}\n"
-  "components {\n"
-  "  id: \"chat_options\"\n"
-  "  component: \"/Prefabs/UI/Chat/chat_options.gui\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "  property_decls {\n"
-  "  }\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"chat_factory_player\"\n"
-  "  type: \"factory\"\n"
-  "  data: \"prototype: \\\"/Prefabs/UI/Chat/chat_blue.go\\\"\\n"
-  "load_dynamically: true\\n"
-  "dynamic_prototype: false\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"chat_factory_npc\"\n"
-  "  type: \"factory\"\n"
-  "  data: \"prototype: \\\"/Prefabs/UI/Chat/chat_green.go\\\"\\n"
-  "load_dynamically: true\\n"
-  "dynamic_prototype: false\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  ""
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
 }

@@ -1,6 +1,12 @@
 local can_start = false
 local already_send = false
 
+function init(self)
+	msg.post("#", "acquire_input_focus")
+	msg.post("/home#camera", "acquire_camera_focus")
+	msg.post("@render:", "use_camera_projection")
+end
+
 local function start_home(self)
 	if already_send == false then
 		msg.post("/app_base#character_random_colors", "create_random_character")
